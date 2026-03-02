@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Components</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<mi-boton text="Probando" type="" id="btn">
+  <svg slot="icon" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2L15 8H21L16.5 12L18.5 18L12 14L5.5 18L7.5 12L3 8H9L12 2Z"/>
+  </svg>
+</mi-boton>
+
+<mi-switch id="swtch"></mi-switch>
+
+<script src="Components/mi-boton.js"></script>
+<script src="Components/mi-switch.js"></script>
+
+ <!-- Script de prueba -->
+  <script>
+    //Toma el switch y lo guarda en la variable switchElement
+    const switchElement = document.getElementById("swtch");
+    //Guarda los estilos globales de CSS
+    const rootStyles = getComputedStyle(document.documentElement);
+
+/*
+    //Crea la escucha para el evento llamado change y revisa, event.detail.checked? si cambia a fondo oscuro
+    switchElement.addEventListener("change", (event) => {
+
+      document.body.style.background = event.detail.checked?
+        document.body.style.background = rootStyles.getPropertyValue("--color-greyjoy-70"): document.body.style.background = rootStyles.getPropertyValue("--color-snow-20");
+    
+  });
+*/
+
+    //Crea la escucha para el evento llamado change y revisa, event.detail.checked? si cambia a fondo oscuro
+    document.addEventListener("change", (e) => { //Crea el evento de escucha para un evento que se llama change
+      if (e.target.matches("mi-switch")) {        //Verifica si el elemento que disparó el evento es un <mi-switch>.
+        console.log("Detectado globalmente:", e.detail.checked);
+      }
+    });
+  </script>
+
+
+
+</body>
+</html>

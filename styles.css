@@ -1,0 +1,154 @@
+:root
+{
+  /************************************
+                                      COLORS
+  ************************************/
+  /* Snow */
+  --color-snow-10: #FEFEFE;
+  --color-snow-20: #FCFDFE;
+  --color-snow-30: #F8FAFC;
+  --color-snow-40: #FBFCFD;
+  --color-snow-50: #F8FAFC;
+  --color-snow-60: #C9CDD2;
+  --color-snow-70: #9B9FA8;
+  --color-snow-80: #6C727E;
+  --color-snow-90: #3E4454;
+
+  /* Greyjoy */
+  --color-greyjoy-10: #C9CDD2;
+  --color-greyjoy-20: #9B9FA8;
+  --color-greyjoy-30: #6C727E;
+  --color-greyjoy-40: #3E4454;
+  --color-greyjoy-50: #0F172A;
+  --color-greyjoy-60: #0C1222;
+  --color-greyjoy-70: #090E19;
+  --color-greyjoy-80: #060911;
+  --color-greyjoy-90: #030508;
+
+  /* Arryn */
+  --color-arryn-10: #CCD0D6;
+  --color-arryn-20: #A1A6AF;
+  --color-arryn-30: #757D88;
+  --color-arryn-40: #4A5361;
+  --color-arryn-50: #1E293B;
+  --color-arryn-60: #1B2637;
+  --color-arryn-70: #182234;
+  --color-arryn-80: #151E31;
+  --color-arryn-90: #121A2E;
+
+  /* Stark */
+  --color-stark-10: #E4E9EF;
+  --color-stark-20: #D0D7E1;
+  --color-stark-30: #BCC6D3;
+  --color-stark-40: #94A3B8;
+  --color-stark-50: #94A3B8;
+  --color-stark-60: #79879B;
+  --color-stark-70: #5F6B7F;
+  --color-stark-80: #444F63;
+  --color-stark-90: #2A3347;
+
+  /* Tully */
+  --color-tully-10: #D1E1FC;
+  --color-tully-20: #AAC9FB;
+  --color-tully-30: #83B0FB;
+  --color-tully-40: #5C98FA;
+  --color-tully-50: #357FFA;
+  --color-tully-60: #2D6AD0;
+  --color-tully-70: #2655A7;
+  --color-tully-80: #21427B;
+  --color-tully-90: #172C54;
+
+  /* Tyrell */
+  --color-tyrell-10: #F8EAF4;
+  --color-tyrell-20: #F9D9EC;
+  --color-tyrell-30: #F8C9E4;
+  --color-tyrell-40: #F9B8DC;
+  --color-tyrell-50: #F9A8D4;
+  --color-tyrell-60: #CA8BB2;
+  --color-tyrell-70: #9B6E90;
+  --color-tyrell-80: #6D516E;
+  --color-tyrell-90: #3E344C;
+
+  /* Baratheon */
+  --color-baratheon-10: #D5EBDA;
+  --color-baratheon-20: #B3DCB7;
+  --color-baratheon-30: #91CD95;
+  --color-baratheon-40: #6FBE72;
+  --color-baratheon-50: #4CAF50;
+  --color-baratheon-60: #409148;
+  --color-baratheon-70: #347241;
+  --color-baratheon-80: #275439;
+  --color-baratheon-90: #1B3532;
+
+  /* Martell */
+  --color-martell-10: #F9EFCB;
+  --color-martell-20: #FBE39A;
+  --color-martell-30: #FCD869;
+  --color-martell-40: #FECC38;
+  --color-martell-50: #FFC107;
+  --color-martell-60: #CF9F0E;
+  --color-martell-70: #9F7D15;
+  --color-martell-80: #6F5B1C;
+  --color-martell-90: #3F3923;
+
+  /* Lannister */
+  --color-lannister-10: #F7D5D5;
+  --color-lannister-20: #F7B1AD;
+  --color-lannister-30: #F58C85;
+  --color-lannister-40: #F5685D;
+  --color-lannister-50: #F44336;
+  --color-lannister-60: #C63B33;
+  --color-lannister-70: #983131;
+  --color-lannister-80: #6B292F;
+  --color-lannister-90: #3D1F2D;
+
+
+
+  /************************************
+                                      TRANSITIONS
+  ************************************/
+  --transition-fast: 150ms ease-out;
+  --transition-normal: 200ms ease-out;
+
+  /************************************
+                                      FONTS
+  ************************************/
+
+    /* Font family */
+  --font-family-primary: "Inter", sans-serif;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Display */
+  --font-size-display: 48px;
+  --line-height-display: 130%;
+
+  /* Header One */
+  --font-size-h1: 32px;
+  --line-height-h1: 130%;
+
+  /* Header Two */
+  --font-size-h2: 26px;
+  --line-height-h2: 130%;
+
+  /* Header Three */
+  --font-size-h3: 21px;
+  --line-height-h3: 130%;
+
+  /* Paragraph */
+  --font-size-paragraph: 16px;
+  --line-height-paragraph: 130%;
+
+  /* Label */
+  --font-size-label: 14px;
+  --line-height-label: 130%;
+
+  /* Mini */
+  --font-size-mini: 12px;
+  --line-height-mini: 130%;
+
+}
