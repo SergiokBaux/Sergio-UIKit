@@ -47,6 +47,22 @@ class MiSwitch extends HTMLElement{
                 :host([checked]) .thumb {
                     transform: translateX(20px);
                 }
+                /**Change switch background and cursor**/
+                :host([checked][disabled]) .switch {
+                    background: var(--color-tully-90);
+                    cursor: default;
+
+                }
+                /**Change switch background and cursor**/
+                :host([disabled]) .switch {
+                    background: var(--color-tyrell-80);
+                    cursor: default;
+                }
+                /**Change switch thumb background and cursor**/
+                :host([disabled]) .thumb {
+                    background: var(--color-stark-50);
+                }
+
             </style>
 
             <div class="switch">
@@ -63,23 +79,30 @@ class MiSwitch extends HTMLElement{
     toggle() {
         //isChecked constant
         const isChecked = this.hasAttribute("checked");
+        const disabled = this.hasAttribute("disabled");
 
-        //isChecked? Yes=removeAttribute No=setAttribute to check
-        if (isChecked) {
-            this.removeAttribute("checked");
-        } else {
-            this.setAttribute("checked", "");
+        //check if the switch is enabled
+        if(!disabled)
+        {
+            //isChecked? Yes=removeAttribute No=setAttribute to check
+            if (isChecked) {
+                this.removeAttribute("checked");
+            } else {
+                this.setAttribute("checked", "");
+            }
+                
+            //Anounce changes by dispatchEvent
+            this.dispatchEvent(
+                //Create a new custom event
+                new CustomEvent("change", {
+                    detail: { checked: this.hasAttribute("checked") },
+                    bubbles: true,
+                    composed: true
+                })
+            );
         }
+
         
-        //Anounce changes by dispatchEvent
-        this.dispatchEvent(
-            //Create a new custom event
-            new CustomEvent("change", {
-                detail: { checked: this.hasAttribute("checked") },
-                bubbles: true,
-                composed: true
-            })
-        );
     }
 }
 

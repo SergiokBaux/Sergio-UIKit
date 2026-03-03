@@ -2,10 +2,10 @@ class MiBoton extends HTMLElement {
 
   constructor() {
     super();
-//Crea un Shadow DOM privado para el componente, (evita que los estilos se mezclen con el resto de la página).
+//Creates a private shadow DOM to the component, (this helps to not mix the provate DOM with the rest).
     const shadow = this.attachShadow({ mode: "open" });
-//si existe atributo → usalo si no existe → usa "Click"
     const text = this.getAttribute("text");
+    //If the attribute exists → use it else → use "Primary"
     const type = this.getAttribute("type") || "Primary";
 
     shadow.innerHTML = `
@@ -133,7 +133,7 @@ class MiBoton extends HTMLElement {
     `;
 
 
-    // Busca el boton dentro del shadow DOM y guardalo en la variable button
+    // Search the button inside the shadow DOM and saves the button var
     const button = shadow.querySelector("button");
 
     button.addEventListener("click", () => {
