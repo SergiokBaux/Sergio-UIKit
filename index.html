@@ -13,9 +13,11 @@
 </mi-boton>
 
 <mi-switch id="swtch"></mi-switch>
+<mi-textbox placeholder="User"></mi-textbox>
 
 <script src="Components/mi-boton.js"></script>
 <script src="Components/mi-switch.js"></script>
+<script src="Components/mi-textbox.js"></script>
 
  <!-- Script de prueba -->
   <script>
@@ -24,7 +26,7 @@
     //Guarda los estilos globales de CSS
     const rootStyles = getComputedStyle(document.documentElement);
 
-/*
+
     //Crea la escucha para el evento llamado change y revisa, event.detail.checked? si cambia a fondo oscuro
     switchElement.addEventListener("change", (event) => {
 
@@ -32,7 +34,7 @@
         document.body.style.background = rootStyles.getPropertyValue("--color-greyjoy-70"): document.body.style.background = rootStyles.getPropertyValue("--color-snow-20");
     
   });
-*/
+/*
 
     //Crea la escucha para el evento llamado change y revisa, event.detail.checked? si cambia a fondo oscuro
     document.addEventListener("change", (e) => { //Crea el evento de escucha para un evento que se llama change
@@ -40,6 +42,7 @@
         console.log("Detectado globalmente:", e.detail.checked);
       }
     });
+  */
   </script>
 
 
