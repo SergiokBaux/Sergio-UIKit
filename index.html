@@ -23,17 +23,22 @@
   <script>
     //Toma el switch y lo guarda en la variable switchElement
     const switchElement = document.getElementById("swtch");
+    const buttonElement = document.getElementById("btn");
+
     //Guarda los estilos globales de CSS
     const rootStyles = getComputedStyle(document.documentElement);
 
 
     //Crea la escucha para el evento llamado change y revisa, event.detail.checked? si cambia a fondo oscuro
     switchElement.addEventListener("change", (event) => {
-
       document.body.style.background = event.detail.checked?
         document.body.style.background = rootStyles.getPropertyValue("--color-greyjoy-70"): document.body.style.background = rootStyles.getPropertyValue("--color-snow-20");
-    
-  });
+        buttonElement.setAttribute("disabled", "");
+    });
+
+    buttonElement.addEventListener("click", (event)=>{
+      switchElement.setAttribute("disabled", "");
+    });
 /*
 
     //Crea la escucha para el evento llamado change y revisa, event.detail.checked? si cambia a fondo oscuro

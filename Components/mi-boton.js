@@ -2,11 +2,13 @@ class MiBoton extends HTMLElement {
 
   constructor() {
     super();
-//Creates a private shadow DOM to the component, (this helps to not mix the provate DOM with the rest).
+     //Creates a private shadow DOM to the component, (this helps to not mix the provate DOM with the rest).
     const shadow = this.attachShadow({ mode: "open" });
     const text = this.getAttribute("text");
     //If the attribute exists → use it else → use "Primary"
     const type = this.getAttribute("type") || "Primary";
+    const disabled = this.hasAttribute("disabled");
+
 
     shadow.innerHTML = `
       <style>
@@ -124,7 +126,8 @@ class MiBoton extends HTMLElement {
         
       </style>
 
-      <button class="${type}">
+      <!-- Botón principal del componente con $ {disabled ? "disabled" : "" revisamos si esta deshabilitado-->
+      <button class="${type}" ${disabled ? "disabled" : ""}>
           <span class="icon">
             <slot name="icon"></slot>
           </span>
@@ -132,13 +135,14 @@ class MiBoton extends HTMLElement {
       </button>
     `;
 
-
     // Search the button inside the shadow DOM and saves the button var
     const button = shadow.querySelector("button");
-
-    button.addEventListener("click", () => {
-      this.dispatchEvent(new Event("click", { bubbles: true, composed: true }));
-    });
+      button.addEventListener("click", () => {
+        // Check if the button is disabled
+        if(!this.hasAttribute("disabled")){
+          this.dispatchEvent(new Event("click", { bubbles: true, composed: true }));
+        }
+      });
   }
 }
 
