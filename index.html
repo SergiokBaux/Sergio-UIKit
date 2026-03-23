@@ -6,14 +6,18 @@
 </head>
 <body>
 
-<mi-boton text="Do a proof" type="" id="btn">
+<mi-boton text="Do a proof" type="Primary" id="btn">
   <svg slot="icon" viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 2L15 8H21L16.5 12L18.5 18L12 14L5.5 18L7.5 12L3 8H9L12 2Z"/>
   </svg>
 </mi-boton>
 
-<mi-switch id="swtch" checked></mi-switch>
-<mi-textbox placeholder="User"></mi-textbox>
+<mi-switch id="swtch"></mi-switch>
+<mi-textbox placeholder="User">
+    <svg slot="icon" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2L15 8H21L16.5 12L18.5 18L12 14L5.5 18L7.5 12L3 8H9L12 2Z"/>
+  </svg>
+</mi-textbox>
 
 <script src="Components/mi-boton.js"></script>
 <script src="Components/mi-switch.js"></script>
@@ -31,9 +35,18 @@
 
     //Crea la escucha para el evento llamado change y revisa, event.detail.checked? si cambia a fondo oscuro
     switchElement.addEventListener("change", (event) => {
-      document.body.style.background = event.detail.checked?
-        document.body.style.background = rootStyles.getPropertyValue("--color-greyjoy-70"): document.body.style.background = rootStyles.getPropertyValue("--color-snow-20");
+      if(event.detail.checked){
+        document.body.style.background = rootStyles.getPropertyValue("--color-greyjoy-70");
         buttonElement.setAttribute("disabled", "");
+        buttonElement.setAttribute("text", "Desactivado");
+
+      }
+      else{
+        document.body.style.background = rootStyles.getPropertyValue("--color-snow-20");
+        buttonElement.removeAttribute("disabled");
+        buttonElement.setAttribute("text", "Activado");
+      }
+
     });
 
     buttonElement.addEventListener("click", (event)=>{

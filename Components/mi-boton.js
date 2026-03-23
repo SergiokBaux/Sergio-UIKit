@@ -1,17 +1,28 @@
 class MiBoton extends HTMLElement {
-
+  //Attributes we want to observe
+  static get observedAttributes() {
+    return ["disabled", "text"];
+  }
   constructor() {
     super();
-     //Creates a private shadow DOM to the component, (this helps to not mix the provate DOM with the rest).
-    const shadow = this.attachShadow({ mode: "open" });
+    //Creates a private shadow DOM to the component, (this helps to not mix the provate DOM with the rest).
+    this.attachShadow({ mode: "open" });
+  }
+  //Creates a render function to draw the element.
+  render() {
     const text = this.getAttribute("text");
     //If the attribute exists → use it else → use "Primary"
     const type = this.getAttribute("type") || "Primary";
     const disabled = this.hasAttribute("disabled");
 
 
-    shadow.innerHTML = `
+    this.shadowRoot.innerHTML = `
       <style>
+      /* Bloqueo físico de eventos en el Host */
+        :host([disabled]) {
+          pointer-events: none;
+          cursor: not-allowed;
+        }
         button
         {
           width: auto;
@@ -53,7 +64,7 @@ class MiBoton extends HTMLElement {
           transition: transform var(--transition-normal);
 
         }
-        .Primary-disabled {
+        .Primary[disabled]{
           background: var(--color-tully-80);
           color: var(--color-arryn-20);
         }
@@ -78,7 +89,7 @@ class MiBoton extends HTMLElement {
           transition: transform var(--transition-normal);
 
         }
-       .Secondary-disabled {
+       .Secondary[disabled]{
           border: 2px solid var(--color-stark-60);
           color: var(--color-stark-60);
         }
@@ -106,7 +117,7 @@ class MiBoton extends HTMLElement {
 
           transition: all var(--transition-normal);
         }
-       .Tertiary-disabled
+       .Tertiary[disabled]
        {
           background: transparent;
           color: var(--color-tyrell-70);
@@ -135,14 +146,15 @@ class MiBoton extends HTMLElement {
       </button>
     `;
 
-    // Search the button inside the shadow DOM and saves the button var
-    const button = shadow.querySelector("button");
-      button.addEventListener("click", () => {
-        // Check if the button is disabled
-        if(!this.hasAttribute("disabled")){
-          this.dispatchEvent(new Event("click", { bubbles: true, composed: true }));
-        }
-      });
+    }
+  // Draw the component when the element is inserted at DOM
+  connectedCallback() {
+    this.render();
+  }
+  attributeChangedCallback(name, oldValue, newValue) {
+  if (oldValue !== newValue) {
+    this.render();
+  }
   }
 }
 
