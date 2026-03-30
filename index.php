@@ -5,19 +5,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <mi-textbox placeholder="User" id="txtbx" message="Error">
+        <svg slot="icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L15 8H21L16.5 12L18.5 18L12 14L5.5 18L7.5 12L3 8H9L12 2Z"/>
+        </svg>
+    </mi-textbox>
+    <mi-boton text="Imprime el texto" type="Primary" id="btn"></mi-boton>
 
-<mi-boton text="Do a proof" type="Primary" id="btn">
-  <svg slot="icon" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2L15 8H21L16.5 12L18.5 18L12 14L5.5 18L7.5 12L3 8H9L12 2Z"/>
-  </svg>
-</mi-boton>
 
 <mi-switch id="swtch"></mi-switch>
-<mi-textbox placeholder="User">
-    <svg slot="icon" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2L15 8H21L16.5 12L18.5 18L12 14L5.5 18L7.5 12L3 8H9L12 2Z"/>
-  </svg>
-</mi-textbox>
+
 
 <script src="Components/mi-boton.js"></script>
 <script src="Components/mi-switch.js"></script>
@@ -28,6 +25,7 @@
     //Toma el switch y lo guarda en la variable switchElement
     const switchElement = document.getElementById("swtch");
     const buttonElement = document.getElementById("btn");
+    const textboxElement = document.getElementById("txtbx");
 
     //Guarda los estilos globales de CSS
     const rootStyles = getComputedStyle(document.documentElement);
@@ -50,7 +48,13 @@
     });
 
     buttonElement.addEventListener("click", (event)=>{
-      switchElement.setAttribute("disabled", "");
+      const Text = textboxElement.value;
+      if (Text.trim() !== "") {
+          alert(Text);
+      }
+      else{
+        alert("Nada escrito.");
+      }
     });
 /*
 
@@ -62,8 +66,5 @@
     });
   */
   </script>
-
-
-
 </body>
 </html>

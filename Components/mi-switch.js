@@ -23,7 +23,7 @@ class MiSwitch extends HTMLElement {
           opacity: 0.6;
         }
         .switch {
-          width: 44px; /* Ajustado para que el thumb de 20px quepa bien */
+          width: 44px;
           height: 24px;
           background: var(--color-tyrell-70);
           border-radius: 12px;
@@ -59,7 +59,7 @@ class MiSwitch extends HTMLElement {
     
     this.shadowRoot.querySelector(".switch").addEventListener("click", () => this.toggle());
     
-    // Soporte para teclado (Espacio y Enter)
+    // Keyboard support 
     this.addEventListener('keydown', (e) => {
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
@@ -67,12 +67,16 @@ class MiSwitch extends HTMLElement {
       }
     });
   }
-
+  //Component reaction
   attributeChangedCallback(name, oldVal, newVal) {
+    //1. If 'checked' attribute changed
     if (name === 'checked') {
       this.setAttribute('aria-checked', this.hasAttribute('checked'));
     }
+    //2. If 'disabled' attribute changed
     if (name === 'disabled') {
+    /* Si está 'disabled', ponemos tabindex="-1" para que el usuario no pueda llegar a él con la tecla TAB.
+    si NO está 'disabled', ponemos "0" para que sea parte del orden normal de navegación. */
       this.setAttribute('aria-disabled', this.hasAttribute('disabled'));
       this.setAttribute('tabindex', this.hasAttribute('disabled') ? '-index' : '0');
     }

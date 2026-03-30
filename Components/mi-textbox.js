@@ -5,10 +5,16 @@ class MiTextbox extends HTMLElement
         this.attachShadow({mode: "open"});
 
         const placeholder = this.getAttribute("placeholder") || "Type text here";
+        const message = this.getAttribute("message") || "";
+
         this.shadowRoot.innerHTML=`
         <style>
         :host{
             display: inline-block;
+        }
+        :host([disabled]) {
+          pointer-events: none;
+          opacity: 0.8;
         }
         input {
           width: 100%;
@@ -87,15 +93,18 @@ class MiTextbox extends HTMLElement
           height: 20px;
           color: var(--color-snow-60);
         }
+        </style>
 
-            </style>
 
-            <span class="input">
-              <input type="text" placeholder="${placeholder}">
+        <span style="">
+          <span class="input">
+            <input type="text" placeholder="${placeholder}">
               <span class="icon">
                 <slot name="icon"></slot>
               </span>
-            </span>
+          </span>
+          <slot name="text">${message}</slot>
+        </span>  
         `;
     }
 
